@@ -2,10 +2,16 @@
 let prom = 16;
 let color = "black";
 
+
 const newColor = document.getElementById("newColor");
+const eraser = document.getElementById("eraser");
 
 newColor.addEventListener("input", (event) => {
-   color = event.target.value;
+    color = event.target.value;
+});
+
+eraser.addEventListener("click", () => {
+    color = "white";
 });
 
 const newGrid = document.querySelector("#newGrid");
