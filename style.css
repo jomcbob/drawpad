@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+    padding-top: 10px;
+    background-color: bisque;
+}
+
+#container {
+display: flex;
+flex-wrap: wrap;
+flex: 0 0 700px;
+height: 700px;
+width: 70px;
+}
+
+#container div {
+    display: flex;
+    flex: 1 1 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 55px;
+    gap: 50px;
+}
