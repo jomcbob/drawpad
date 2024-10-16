@@ -1,4 +1,4 @@
-console.log("yo");
+
 let prom = 16;
 let color = "green";
 
@@ -11,10 +11,6 @@ if (prom > 100 || prom < 1) {
 const container = document.querySelector("#container");
 container.innerHTML = ""; // Clear any existing grid
 
-const changeColor = document.querySelector("#changeColor");
-changeColor.addEventListener("click", () => {
-   color = prompt("what color do you want", "green").toString()
-});
 
 for (let i = 0; i < prom * prom; i++) {
     const content = document.createElement("div");
