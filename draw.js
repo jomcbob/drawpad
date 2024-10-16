@@ -1,85 +1,65 @@
 
 let prom = 30;
 let color = "black";
-
-
-const newColor = document.getElementById("newColor");
-const eraser = document.getElementById("eraser");
-const shade = document.getElementById("shading");
-
-
-
-newColor.addEventListener("input", (event) => {
-    color = event.target.value;
-});
-
-eraser.addEventListener("click", () => {
-    color = "white";
-});
+let isRainbow = false
 
 const newGrid = document.querySelector("#newGrid");
 newGrid.addEventListener("click", () => {
     prom = prompt("please give a number between 1 and 100", "30");
-if (prom > 100 || prom < 1) {
-    prom = 30;
-}
-const container = document.querySelector("#container");
-container.innerHTML = ""; // Clear any existing grid
+    if (prom > 100 || prom < 1) {
+        prom = 30;
+    }
+    const container = document.querySelector("#container");
+    container.innerHTML = ""; // Clear any existing grid
 
-
-for (let i = 0; i < prom * prom; i++) {
-    const content = document.createElement("div");
-    content.style.cssText = "background: white";
-    content.style.border = '1px solid black';
-    content.style.width = `calc(700px / ${prom})`;
-    content.style.height = `calc(700px / ${prom})`;
-    content.style.aspectRatio ="1/1";
-    content.style.boxSizing = "border-box";
-    container.appendChild(content);
-    content.addEventListener("mouseenter", (event) => {
-        content.style.backgroundColor = color;
-    });
-
-    shade.addEventListener("click", () => {
-        content.addEventListener("mouseover", function( event ) {   
-            var that = event.target;
-            that.style.backgroundColor = "black";    
-            if(parseFloat(that.style.opacity)) {
-              that.style.opacity = parseFloat(that.style.opacity) + 0.1;
-            } else {
-              that.style.opacity = 0.2;
-            }
-
-        })
-    });
-}
+    createGrid(prom)
 });
 
+const eraser = document.getElementById("eraser");
+eraser.addEventListener("click", () => {
+    isRainbow = false
+    color = "white";
+});
 
+const random = document.getElementById("rndm");
+random.addEventListener("click", () => {
+    isRainbow = true;
+});
 
-for (let i = 0; i < prom * prom; i++) {
-    const content = document.createElement("div");
-    content.style.cssText = "background: white";
-    content.style.border = '1px solid black';
-    content.style.width = `calc(700px / ${prom})`;
-    content.style.height = `calc(700px / ${prom})`;
-    content.style.aspectRatio ="1/1";
-    content.style.boxSizing = "border-box";
-    container.appendChild(content);
-    content.addEventListener("mouseenter", (event) => {
-        content.style.backgroundColor = color;
-    });
+const newColor = document.getElementById("newColor");
+newColor.addEventListener("input", (event) => {
+    isRainbow = false
+    color = event.target.value;
+});
 
-    shade.addEventListener("click", () => {
-        content.addEventListener("mouseover", function( event ) {  
-            let that = event.target;
-            that.style.backgroundColor = "black";    
-            if(parseFloat(that.style.opacity)) {
-              that.style.opacity = parseFloat(that.style.opacity) + 0.1;
-            } else {
-              that.style.opacity = 0.1;
-            }
-
-        })
-    });
+function rainbow() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
+
+function createGrid(size) {
+    for (let i = 0; i < size * size; i++) {
+        const content = document.createElement("div");
+        content.style.cssText = "background: white";
+        content.style.border = '1px solid black';
+        content.style.width = `calc(700px / ${size})`;
+        content.style.height = `calc(700px / ${size})`;
+        content.style.aspectRatio = "1/1";
+        content.style.boxSizing = "border-box";
+        content.addEventListener("mouseenter", (event) => {
+            if (isRainbow) {
+                color = rainbow()
+            }
+            content.style.backgroundColor = color;
+        });
+
+        container.appendChild(content);
+    }
+}
+
+createGrid(prom)
+
+
+
+
+
+
