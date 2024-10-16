@@ -1,6 +1,12 @@
 
 let prom = 16;
-let color = "green";
+let color = "black";
+
+const newColor = document.getElementById("newColor");
+
+newColor.addEventListener("input", (event) => {
+   color = event.target.value;
+});
 
 const newGrid = document.querySelector("#newGrid");
 newGrid.addEventListener("click", () => {
@@ -42,11 +48,3 @@ for (let i = 0; i < prom * prom; i++) {
         content.style.backgroundColor = color;
     });
 }
-
-
-
-
-
-
-
-
