@@ -27,3 +27,20 @@ width: 70px;
     margin: 55px;
     gap: 50px;
 }
+
+button:hover {
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: gray;
+}
+
+button:not(.default)::-moz-focus-inner {
+        border-style: none;
+    }
+
+    button:focus {
+        outline: 2px solid #000000;
+        color: red;
+        border-radius: 5px;
+        background-color: goldenrod;
+      }
