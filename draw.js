@@ -13,6 +13,9 @@ newGrid.addEventListener("click", () => {
     container.innerHTML = "" // Clear any existing grid
 
     createGrid(prom)
+    isRainbow = false
+    isShaded = false
+    color = "black"
 });
 
 const eraser = document.getElementById("eraser")
