@@ -67,7 +67,7 @@ function createGrid(size) {
 
             content.style.backgroundColor = color
         })
-        container.appendChild(content)
+        container.appendChild(content)  
     }
 }
 
