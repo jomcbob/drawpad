@@ -5,7 +5,7 @@ body {
     height: 100vh;
     padding: 10px;
     padding-top: 10px;
-    background-color: bisque;
+    background-color: white;
 }
 
 input {
@@ -24,6 +24,8 @@ flex-wrap: wrap;
 flex: 0 0 700px;
 height: 700px;
 width: 70px;
+border: 30px solid red;
+border-radius: 20px;
 }
 
 #container div {
